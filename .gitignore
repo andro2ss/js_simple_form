@@ -1,3 +1,7 @@
 node_modules/
 dist/
 .idea
+src/firebase.js
+.firebase/
+.firebaserc
+firebase.json
