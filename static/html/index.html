@@ -10,17 +10,21 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.ico" />
   </head>
   <body>
-  <div class="form__container">
-    <form id="formularz">
-      <label for="formName">Podaj imie i nazwisko</label>
-      <input type="text" name="formName" id="formName">
-      <label for="formName">Podaj adres email</label>
-      <input type="email" name="formEmail" id="formEmail">
-      <label for="formName">Podaj numer telefonu</label>
-      <input type="number" name="formPhone" id="formPhone">
-      <button>Wyślij</button>
+    <form id="pageForm" class="form__container">
+      <div class="form__item">
+        <label for="formName" id="formNameLabel">Podaj imie i nazwisko</label>
+        <input type="text" name="formName" id="formName" placeholder="Podaj imię i nazwisko">
+      </div>
+      <div class="form__item">
+        <label for="formEmail" id="formEmailLabel">Podaj adres email</label>
+        <input type="email" name="formEmail" id="formEmail" placeholder="Podaj adres e-mail">
+      </div>
+      <div class="form__item">
+        <label for="formPhone" id="formPhoneLabel">Podaj numer telefonu</label>
+        <input type="tel" name="formPhone" id="formPhone" placeholder="Podaj numer telefonu" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');">
+      </div>
+      <button class="form__btn">Wyślij</button>
     </form>
-  </div>
     <script src="main.js"></script>
   </body>
 </html>

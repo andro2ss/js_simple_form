@@ -1,25 +1,20 @@
 import './main.scss';
+import handleFormName from './src/handleFormName';
+import handleFormEmail from './src/handleFormEmail';
+import handleFormPhone from './src/handleFormPhone';
 
-const formularz = document.getElementById('formularz');
-const nameField = document.getElementById('formName');
-const emailField = document.getElementById('formEmail');
-const phoneField = document.getElementById('formPhone');
+const pageForm = document.getElementById('pageForm');
+const formContainer = document.querySelector('.form__container');
 
+const formValidation = () => {
+  return handleFormEmail() + handleFormName() + handleFormPhone();
+};
 
-
-function handleFormName() {
-  console.log(nameField.value);
-  if (nameField.value.length <= 3) {
-    nameField.classList.add('error__input');
-  } else if (nameField.classList.contains('error__input')) {
-    nameField.classList.remove('error__input');
-  }
-}
-
-function handleFormOnSubmit(e) {
+const handleFormOnSubmit = (e) => {
   e.preventDefault();
-  handleFormName();
-  console.log(nameField.value);
-}
+  if (formValidation() === 0) {
+    formContainer.innerHTML = `<span class="form__text--thanks">${'Dziękujemy za wypełnienie formularza'}</span>`;
+  }
+};
 
-formularz.addEventListener('submit', handleFormOnSubmit);
+pageForm.addEventListener('submit', handleFormOnSubmit);
